@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mochi Desk | Chatbot và landing page cho doanh nghiệp</title>
-<meta name="description" content="Chatbot Messenger/Instagram và landing page song ngữ cho doanh nghiệp. Làm việc online bằng tiếng Anh và tiếng Việt.">
+<title>Mochi Desk | Chatbot và trang web cho doanh nghiệp</title>
+<meta name="description" content="Chatbot tự trả lời tin nhắn khách trên Facebook và Instagram, kèm trang web song ngữ cho doanh nghiệp. Làm việc online bằng tiếng Anh và tiếng Việt.">
 <meta name="theme-color" content="#0D2B3E">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230D2B3E'/%3E%3Cpath d='M8 10h16v9H15l-4 4v-4H8z' fill='%23FFCF3F'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -83,6 +83,9 @@ h1{margin:0 0 20px;font-size:clamp(2.25rem,5.4vw,4.25rem);font-weight:800;line-h
 .chip:hover{background:var(--ink);color:#fff}
 @keyframes pop{from{opacity:0;transform:translateY(6px) scale(.98)}to{opacity:1;transform:none}}
 @keyframes blink{0%,80%,100%{opacity:.3;transform:translateY(0)}40%{opacity:1;transform:translateY(-3px)}}
+
+.demo{min-width:0}
+.demo-hint{width:min(100%,380px);margin:24px auto 0;text-align:center;color:var(--muted);font-size:.9rem}
 
 /* Bands */
 .band{padding:clamp(56px,8vw,104px) 0}
@@ -200,14 +203,15 @@ h2{margin:0 0 12px;font-size:clamp(1.75rem,3.6vw,2.75rem);font-weight:800;line-h
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <h1 data-vi="Trả lời khách 24/7, không bỏ lỡ đơn nào" data-en="Reply to customers 24/7. Never miss an order.">Trả lời khách 24/7, không bỏ lỡ đơn nào</h1>
-        <p class="lead" data-vi="Giải pháp chatbot tự động (Messenger, Instagram) và landing page song ngữ giúp doanh nghiệp trả lời khách và ghi nhận đơn 24/7, bớt thời gian cho những tin nhắn lặp lại."
-           data-en="Automated chatbots (Messenger, Instagram) and bilingual landing pages that help businesses answer customers and capture orders 24/7, with less time spent on repeated messages.">Giải pháp chatbot tự động (Messenger, Instagram) và landing page song ngữ giúp doanh nghiệp trả lời khách và ghi nhận đơn 24/7, bớt thời gian cho những tin nhắn lặp lại.</p>
+        <p class="lead" data-vi="Bot tự trả lời tin nhắn của khách trên Facebook và Instagram, kể cả ngoài giờ làm việc."
+           data-en="A bot that answers your customers' messages on Facebook and Instagram, even outside work hours.">Bot tự trả lời tin nhắn của khách trên Facebook và Instagram, kể cả ngoài giờ làm việc.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="#contact" data-vi="Nhận bản demo miễn phí" data-en="Get a free demo">Nhận bản demo miễn phí</a>
           <a class="btn-text" href="#services" data-vi="Xem dịch vụ" data-en="See services">Xem dịch vụ</a>
         </div>
       </div>
 
+      <div class="demo">
       <div class="phone" role="group" aria-label="Chatbot demo">
         <div class="chat-head">
           <div class="avatar" aria-hidden="true">L</div>
@@ -216,6 +220,8 @@ h2{margin:0 0 12px;font-size:clamp(1.75rem,3.6vw,2.75rem);font-weight:800;line-h
         </div>
         <div class="chat-log" id="chatLog" role="log" aria-live="polite" aria-label="Chat"></div>
         <div class="chips" id="chips"></div>
+      </div>
+      <p class="demo-hint" data-vi="Thử bấm vào các nút trong khung chat: đây là cách bot trả lời khách của bạn." data-en="Try tapping the buttons in the chat: this is how the bot answers your customers.">Thử bấm vào các nút trong khung chat: đây là cách bot trả lời khách của bạn.</p>
       </div>
     </div>
   </section>
@@ -227,36 +233,15 @@ h2{margin:0 0 12px;font-size:clamp(1.75rem,3.6vw,2.75rem);font-weight:800;line-h
       <div class="svc-list">
         <div class="svc">
           <h3 data-vi="Chatbot trả lời tự động" data-en="Auto-reply chatbot">Chatbot trả lời tự động</h3>
-          <div>
-            <p data-vi="Tự động giải đáp các câu hỏi thường gặp (bảng giá, phí ship, chính sách) và chuyển cho bạn khi khách cần tư vấn sâu." data-en="Automatically answers common questions (prices, shipping, policies) and hands over to you when a customer needs in-depth advice.">Tự động giải đáp các câu hỏi thường gặp (bảng giá, phí ship, chính sách) và chuyển cho bạn khi khách cần tư vấn sâu.</p>
-            <ul>
-              <li data-vi="Kênh hỗ trợ: Messenger, Instagram hoặc website" data-en="Channels: Messenger, Instagram or website">Kênh hỗ trợ: Messenger, Instagram hoặc website</li>
-              <li data-vi="Kịch bản tùy biến: 10-15 tình huống hỏi đáp do bạn duyệt" data-en="Custom scripts: 10-15 Q&amp;A scenarios approved by you">Kịch bản tùy biến: 10-15 tình huống hỏi đáp do bạn duyệt</li>
-              <li data-vi="Đồng bộ dữ liệu: tên, thông tin liên hệ và đơn hàng tự vào Google Sheets" data-en="Data sync: names, contact details and orders go straight into Google Sheets">Đồng bộ dữ liệu: tên, thông tin liên hệ và đơn hàng tự vào Google Sheets</li>
-            </ul>
-          </div>
+          <p data-vi="Trả lời những câu khách hay hỏi như giá, ship, giờ mở cửa. Gặp câu khó thì chuyển cho bạn." data-en="Answers common questions like prices, shipping and opening hours. Passes the tricky ones to you.">Trả lời những câu khách hay hỏi như giá, ship, giờ mở cửa. Gặp câu khó thì chuyển cho bạn.</p>
         </div>
         <div class="svc">
-          <h3 data-vi="Landing page song ngữ" data-en="Bilingual landing page">Landing page song ngữ</h3>
-          <div>
-            <p data-vi="Một trang gọn, tải nhanh, có nút chuyển ngôn ngữ cho khách trong nước và khách quốc tế." data-en="One clean, fast page with a language switch for local and international customers.">Một trang gọn, tải nhanh, có nút chuyển ngôn ngữ cho khách trong nước và khách quốc tế.</p>
-            <ul>
-              <li data-vi="Form liên hệ nối thẳng vào Google Sheets" data-en="Contact form connected to Google Sheets">Form liên hệ nối thẳng vào Google Sheets</li>
-              <li data-vi="Hiển thị tốt trên điện thoại" data-en="Works well on phones">Hiển thị tốt trên điện thoại</li>
-              <li data-vi="Email báo mỗi khi có khách mới" data-en="Email alert for every new lead">Email báo mỗi khi có khách mới</li>
-            </ul>
-          </div>
+          <h3 data-vi="Trang web song ngữ" data-en="Bilingual web page">Trang web song ngữ</h3>
+          <p data-vi="Một trang web gọn, xem tốt trên điện thoại, có nút đổi ngôn ngữ. Khách để lại thông tin là bạn nhận được email." data-en="One clean web page that looks good on phones, with a language switch. When a customer leaves their details, you get an email.">Một trang web gọn, xem tốt trên điện thoại, có nút đổi ngôn ngữ. Khách để lại thông tin là bạn nhận được email.</p>
         </div>
         <div class="svc">
-          <h3 data-vi="Tự động hóa quy trình" data-en="Workflow automation">Tự động hóa quy trình</h3>
-          <div>
-            <p data-vi="Đơn hàng, khách hỏi mua và báo cáo tuần được ghi và gửi tự động." data-en="Orders, inquiries and weekly reports are recorded and sent automatically.">Đơn hàng, khách hỏi mua và báo cáo tuần được ghi và gửi tự động.</p>
-            <ul>
-              <li data-vi="Google Sheets và Apps Script" data-en="Google Sheets and Apps Script">Google Sheets và Apps Script</li>
-              <li data-vi="Báo cáo hằng tuần qua email" data-en="Weekly report by email">Báo cáo hằng tuần qua email</li>
-              <li data-vi="Hướng dẫn sử dụng 1 trang" data-en="One-page usage guide">Hướng dẫn sử dụng 1 trang</li>
-            </ul>
-          </div>
+          <h3 data-vi="Ghi đơn tự động" data-en="Automatic order tracking">Ghi đơn tự động</h3>
+          <p data-vi="Đơn hàng và thông tin khách được ghi sẵn vào bảng tính, kèm báo cáo gửi về email mỗi tuần." data-en="Orders and customer details are saved to a spreadsheet automatically, with a weekly report sent to your email.">Đơn hàng và thông tin khách được ghi sẵn vào bảng tính, kèm báo cáo gửi về email mỗi tuần.</p>
         </div>
       </div>
     </div>
@@ -265,27 +250,27 @@ h2{margin:0 0 12px;font-size:clamp(1.75rem,3.6vw,2.75rem);font-weight:800;line-h
   <section class="band" id="process">
     <div class="wrap">
       <h2 data-vi="Quy trình 4 bước" data-en="Four steps">Quy trình 4 bước</h2>
-      <p class="section-sub" data-vi="Lên kế hoạch kỹ trước khi dựng, để bot chạy trơn tru." data-en="Plan carefully before building, so the bot runs smoothly.">Lên kế hoạch kỹ trước khi dựng, để bot chạy trơn tru.</p>
+      <p class="section-sub" data-vi="Bạn chỉ cần trả lời vài câu hỏi, còn lại mình lo." data-en="You answer a few questions, I handle the rest.">Bạn chỉ cần trả lời vài câu hỏi, còn lại mình lo.</p>
       <ol class="steps">
         <li>
           <div class="step-num" aria-hidden="true">1</div>
           <h3 data-vi="Khảo sát" data-en="Discover">Khảo sát</h3>
-          <p data-vi="Họp online 15-20 phút để hiểu khách của bạn hay hỏi gì." data-en="A 15-20 minute online call to learn what your customers ask most.">Họp online 15-20 phút để hiểu khách của bạn hay hỏi gì.</p>
+          <p data-vi="Trò chuyện 15-20 phút để biết khách hay hỏi gì." data-en="A 15-20 minute chat to learn what customers ask.">Trò chuyện 15-20 phút để biết khách hay hỏi gì.</p>
         </li>
         <li>
           <div class="step-num" aria-hidden="true">2</div>
           <h3 data-vi="Lên kế hoạch" data-en="Plan">Lên kế hoạch</h3>
-          <p data-vi="Soạn bộ câu hỏi và câu trả lời. Bạn duyệt trước khi dựng." data-en="Draft the questions and answers. You approve them before building.">Soạn bộ câu hỏi và câu trả lời. Bạn duyệt trước khi dựng.</p>
+          <p data-vi="Mình soạn câu trả lời, bạn duyệt." data-en="I draft the answers, you approve them.">Mình soạn câu trả lời, bạn duyệt.</p>
         </li>
         <li>
           <div class="step-num" aria-hidden="true">3</div>
           <h3 data-vi="Dựng và thử" data-en="Build and test">Dựng và thử</h3>
-          <p data-vi="Dựng bot và thử ít nhất 20 tình huống thật." data-en="Build the bot and test at least 20 real situations.">Dựng bot và thử ít nhất 20 tình huống thật.</p>
+          <p data-vi="Mình dựng bot và thử kỹ trước khi giao." data-en="I build the bot and test it before handover.">Mình dựng bot và thử kỹ trước khi giao.</p>
         </li>
         <li>
           <div class="step-num" aria-hidden="true">4</div>
           <h3 data-vi="Bàn giao" data-en="Hand over">Bàn giao</h3>
-          <p data-vi="Gửi hướng dẫn 1 trang, theo dõi 1-2 tuần và cập nhật khi bot trả lời chưa tốt." data-en="A one-page guide, then 1-2 weeks of monitoring and fixes where the bot falls short.">Gửi hướng dẫn 1 trang, theo dõi 1-2 tuần và cập nhật khi bot trả lời chưa tốt.</p>
+          <p data-vi="Mình hướng dẫn bạn dùng, và theo dõi 1-2 tuần đầu để sửa." data-en="I show you how to use it and watch it for the first 1-2 weeks.">Mình hướng dẫn bạn dùng, và theo dõi 1-2 tuần đầu để sửa.</p>
         </li>
       </ol>
     </div>
@@ -295,9 +280,9 @@ h2{margin:0 0 12px;font-size:clamp(1.75rem,3.6vw,2.75rem);font-weight:800;line-h
     <div class="wrap">
       <div class="first">
         <div>
-          <h2 data-vi="Đang mở 3 suất triển khai thử nghiệm" data-en="Opening 3 pilot spots">Đang mở 3 suất triển khai thử nghiệm</h2>
-          <p data-vi="Mình là Alexis, người đứng sau Mochi Desk. Mình có kinh nghiệm ứng dụng tự động hóa vào công việc hằng ngày, từ trả lời tin nhắn khách đến ghi đơn và làm báo cáo, và làm việc được bằng cả tiếng Anh lẫn tiếng Việt. Hiện mình đang mở 3 suất triển khai thử nghiệm với chi phí tượng trưng, đổi lại là góp ý thật và quyền dùng kết quả làm ví dụ. Nếu bạn muốn gọn hóa việc trả lời tin nhắn trong tuần này, hãy nhắn mình."
-             data-en="I'm Alexis, the person behind Mochi Desk. I have hands-on experience applying automation to everyday work, from answering customer messages to logging orders and sending reports, and I work in both English and Vietnamese. I'm opening 3 pilot spots at a token price, in exchange for honest feedback and permission to use the results as examples. If you want to streamline message handling this week, message me.">Mình là Alexis, người đứng sau Mochi Desk. Mình có kinh nghiệm ứng dụng tự động hóa vào công việc hằng ngày, từ trả lời tin nhắn khách đến ghi đơn và làm báo cáo, và làm việc được bằng cả tiếng Anh lẫn tiếng Việt. Hiện mình đang mở 3 suất triển khai thử nghiệm với chi phí tượng trưng, đổi lại là góp ý thật và quyền dùng kết quả làm ví dụ. Nếu bạn muốn gọn hóa việc trả lời tin nhắn trong tuần này, hãy nhắn mình.</p>
+          <h2 data-vi="Đang mở 3 suất làm thử" data-en="3 trial spots open">Đang mở 3 suất làm thử</h2>
+          <p data-vi="Mình là Alexis, người đứng sau Mochi Desk. Mình làm việc được bằng cả tiếng Anh lẫn tiếng Việt. Hiện có 3 suất làm thử với chi phí tượng trưng, đổi lại là góp ý thật và quyền dùng kết quả làm ví dụ."
+             data-en="I'm Alexis, the person behind Mochi Desk. I work in both English and Vietnamese. There are 3 trial spots open at a token price, in exchange for honest feedback and permission to use the results as examples.">Mình là Alexis, người đứng sau Mochi Desk. Mình làm việc được bằng cả tiếng Anh lẫn tiếng Việt. Hiện có 3 suất làm thử với chi phí tượng trưng, đổi lại là góp ý thật và quyền dùng kết quả làm ví dụ.</p>
         </div>
         <a class="btn btn-primary" href="#contact" data-vi="Đăng ký làm thử" data-en="Apply for a pilot">Đăng ký làm thử</a>
       </div>
@@ -315,11 +300,11 @@ h2{margin:0 0 12px;font-size:clamp(1.75rem,3.6vw,2.75rem);font-weight:800;line-h
         </div>
         <div class="qa">
           <h3><button type="button" aria-expanded="false" aria-controls="a2" id="q2" data-vi="Mình có phải đưa mật khẩu Facebook không?" data-en="Do I need to share my Facebook password?">Mình có phải đưa mật khẩu Facebook không?</button></h3>
-          <div class="panel" id="a2" role="region" aria-labelledby="q2"><div><p data-vi="Không. Bạn chỉ cần thêm mình vào Meta Business Suite với quyền vừa đủ, và có thể gỡ bất cứ lúc nào." data-en="No. You just add me in Meta Business Suite with limited access, and you can remove me at any time.">Không. Bạn chỉ cần thêm mình vào Meta Business Suite với quyền vừa đủ, và có thể gỡ bất cứ lúc nào.</p></div></div>
+          <div class="panel" id="a2" role="region" aria-labelledby="q2"><div><p data-vi="Không. Bạn chỉ cần thêm mình vào Page với quyền vừa đủ, và có thể gỡ bất cứ lúc nào." data-en="No. You just add me to your Page with limited access, and you can remove me at any time.">Không. Bạn chỉ cần thêm mình vào Page với quyền vừa đủ, và có thể gỡ bất cứ lúc nào.</p></div></div>
         </div>
         <div class="qa">
           <h3><button type="button" aria-expanded="false" aria-controls="a3" id="q3" data-vi="Dữ liệu khách hàng lưu ở đâu?" data-en="Where is customer data stored?">Dữ liệu khách hàng lưu ở đâu?</button></h3>
-          <div class="panel" id="a3" role="region" aria-labelledby="q3"><div><p data-vi="Trong Google Sheets thuộc tài khoản của bạn. Mình không giữ bản sao riêng." data-en="In a Google Sheet under your own account. I keep no separate copy.">Trong Google Sheets thuộc tài khoản của bạn. Mình không giữ bản sao riêng.</p></div></div>
+          <div class="panel" id="a3" role="region" aria-labelledby="q3"><div><p data-vi="Trong bảng tính Google của chính bạn. Mình không giữ bản sao riêng." data-en="In a Google Sheet under your own account. I keep no separate copy.">Trong bảng tính Google của chính bạn. Mình không giữ bản sao riêng.</p></div></div>
         </div>
         <div class="qa">
           <h3><button type="button" aria-expanded="false" aria-controls="a4" id="q4" data-vi="Bot không trả lời được thì sao?" data-en="What if the bot can't answer?">Bot không trả lời được thì sao?</button></h3>
@@ -400,7 +385,7 @@ h2{margin:0 0 12px;font-size:clamp(1.75rem,3.6vw,2.75rem);font-weight:800;line-h
 
   var TEXT = {
     vi: {
-      title: 'Mochi Desk | Chatbot và landing page cho doanh nghiệp',
+      title: 'Mochi Desk | Chatbot và trang web cho doanh nghiệp',
       sending: 'Đang gửi…',
       sent: 'Đã gửi. Mình sẽ liên hệ với bạn sớm.',
       fail: 'Chưa gửi được. Bạn thử lại hoặc gửi email cho mình nhé.',
@@ -409,7 +394,7 @@ h2{margin:0 0 12px;font-size:clamp(1.75rem,3.6vw,2.75rem);font-weight:800;line-h
       replay: 'Chạy lại demo'
     },
     en: {
-      title: 'Mochi Desk | Chatbots and landing pages for businesses',
+      title: 'Mochi Desk | Chatbots and websites for businesses',
       sending: 'Sending…',
       sent: 'Sent. I will get back to you soon.',
       fail: 'Could not send. Please try again or email me.',
@@ -427,7 +412,7 @@ h2{margin:0 0 12px;font-size:clamp(1.75rem,3.6vw,2.75rem);font-weight:800;line-h
       handover: 'Bot tạm dừng. Nhân viên sẽ tiếp tục cuộc trò chuyện.',
       opts: [
         { id: 'menu', label: 'Xem menu và giá', reply: 'Menu hôm nay:\nFlat white: 55.000đ\nMatcha latte: 65.000đ\nBánh croissant: 45.000đ' },
-        { id: 'hours', label: 'Giờ mở cửa và địa chỉ', reply: 'Quán mở từ 7:00 đến 18:00 mỗi ngày.\nĐịa chỉ: 123 Đường ABC.' },
+        { id: 'hours', label: 'Giờ mở cửa và địa chỉ', reply: 'Quán mở từ 7:00 đến 18:00 mỗi ngày.\nĐịa chỉ: 12 Đường Mẫu.' },
         { id: 'order', label: 'Đặt món', reply: 'Bạn cho mình biết món và số lượng nhé, ví dụ "2 flat white". Sau đó mình ghi lại tên và cách liên hệ để quán xác nhận đơn.' },
         { id: 'human', label: 'Chat với nhân viên', reply: 'Mình chuyển cuộc trò chuyện cho nhân viên nhé. Bạn sẽ được trả lời trong ít phút.' }
       ]
@@ -439,7 +424,7 @@ h2{margin:0 0 12px;font-size:clamp(1.75rem,3.6vw,2.75rem);font-weight:800;line-h
       handover: 'Bot paused. A team member will continue the chat.',
       opts: [
         { id: 'menu', label: 'See menu and prices', reply: 'Today\'s menu:\nFlat white: $4.50\nMatcha latte: $5.00\nButter croissant: $3.50' },
-        { id: 'hours', label: 'Opening hours and address', reply: 'We\'re open 7:00 to 18:00 every day.\nAddress: 123 ABC Street.' },
+        { id: 'hours', label: 'Opening hours and address', reply: 'We\'re open 7:00 to 18:00 every day.\nAddress: 12 Sample Street.' },
         { id: 'order', label: 'Place an order', reply: 'Tell me the drink and quantity, for example "2 flat whites". Then I\'ll take your name and contact details so the café can confirm.' },
         { id: 'human', label: 'Talk to a person', reply: 'I\'ll hand this chat over to a team member. You\'ll get a reply in a few minutes.' }
       ]
