@@ -3,192 +3,625 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Alexis | Chatbot & Landing Page cho doanh nghiệp nhỏ</title>
+<title>Alexis | Chatbot và landing page cho doanh nghiệp nhỏ</title>
 <meta name="description" content="Chatbot Messenger/Zalo và landing page song ngữ Anh-Việt cho doanh nghiệp nhỏ tại TP.HCM.">
+<meta name="theme-color" content="#0D2B3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230D2B3E'/%3E%3Cpath d='M8 10h16v9H15l-4 4v-4H8z' fill='%23FFCF3F'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#0f2547;--blue:#2563eb;--bg:#f7f8fb;--card:#fff;--text:#1c2433;--muted:#5b6678;--line:#e3e7ef}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.6}
-.wrap{max-width:1020px;margin:0 auto;padding:0 20px}
-header{position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:10}
-.nav{display:flex;align-items:center;justify-content:space-between;height:60px}
-.logo{font-weight:700;color:var(--navy);text-decoration:none;font-size:18px}
-.nav-r{display:flex;align-items:center;gap:18px}
-.nav a.l{color:var(--muted);text-decoration:none;font-size:14px}
-.lang{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 14px;font-size:13px;cursor:pointer;font-weight:600;color:var(--navy)}
-.hero{padding:80px 0 60px;text-align:center}
-.hero h1{font-size:clamp(30px,5vw,48px);color:var(--navy);line-height:1.2;margin-bottom:16px}
-.hero p{font-size:18px;color:var(--muted);max-width:640px;margin:0 auto 28px}
-.btn{display:inline-block;background:var(--blue);color:#fff;text-decoration:none;padding:13px 26px;border-radius:10px;font-weight:600;border:0;cursor:pointer;font-size:16px}
-.btn.alt{background:#fff;color:var(--navy);border:1px solid var(--line);margin-left:8px}
-section{padding:56px 0}
-h2{font-size:28px;color:var(--navy);margin-bottom:8px}
-.sub{color:var(--muted);margin-bottom:28px}
-.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
-.card h3{font-size:18px;color:var(--navy);margin-bottom:8px}
-.card p,.card li{color:var(--muted);font-size:15px}
-.card ul{padding-left:18px;margin-top:8px}
-.num{display:inline-flex;width:30px;height:30px;border-radius:50%;background:var(--blue);color:#fff;align-items:center;justify-content:center;font-weight:700;margin-bottom:10px}
-.ph{border-style:dashed;text-align:center;color:var(--muted)}
-details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:10px}
-summary{cursor:pointer;font-weight:600;color:var(--navy)}
-details p{margin-top:10px;color:var(--muted);font-size:15px}
-form{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;max-width:560px}
-input,textarea{width:100%;padding:12px 14px;margin-bottom:12px;border:1px solid var(--line);border-radius:10px;font:inherit}
-textarea{min-height:100px;resize:vertical}
-.contacts{margin-top:18px;display:flex;gap:14px;flex-wrap:wrap}
-.contacts a{color:var(--blue);text-decoration:none;font-weight:600}
-#msg{margin-top:10px;font-size:14px;color:#15803d}
-footer{padding:30px 0;text-align:center;color:var(--muted);font-size:14px;border-top:1px solid var(--line);margin-top:30px}
-@media(max-width:600px){.nav a.l{display:none}.btn.alt{margin:10px 0 0}}
+:root{
+  --ink:#0D2B3E;
+  --muted:#3B5568;
+  --paper:#EDF2F6;
+  --white:#FFFFFF;
+  --yellow:#FFCF3F;
+  --teal:#0B7A75;
+  --line:#D3DCE4;
+  --danger:#B42318;
+  --on-ink:#B7C6D3;
+  --header-h:64px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 12px)}
+body{margin:0;font-family:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+
+.skip{position:absolute;left:12px;top:-60px;background:var(--ink);color:#fff;padding:10px 16px;border-radius:8px;z-index:50;transition:top .2s}
+.skip:focus{top:12px}
+
+/* Header */
+.site-header{position:sticky;top:0;z-index:20;height:var(--header-h);background:rgba(237,242,246,.9);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px)}
+.bar{height:100%;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-weight:800;font-size:1.25rem;letter-spacing:-.02em;text-decoration:none}
+.nav{display:flex;align-items:center;gap:28px}
+.nav-links{display:flex;gap:24px}
+.nav-links a{text-decoration:none;font-weight:500;font-size:.95rem;color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.lang{display:inline-flex;border:2px solid var(--ink);border-radius:999px;overflow:hidden}
+.lang button{font-family:inherit;font-weight:700;font-size:.8rem;border:0;background:transparent;color:var(--ink);padding:6px 12px;min-height:34px;cursor:pointer;transition:background .2s,color .2s}
+.lang button[aria-pressed="true"]{background:var(--ink);color:#fff}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;border-radius:12px;font-family:inherit;font-weight:600;font-size:1rem;text-decoration:none;border:0;cursor:pointer;transition:background .2s,color .2s,transform .2s}
+.btn-primary{background:var(--ink);color:#fff}
+.btn-primary:hover{background:var(--yellow);color:var(--ink)}
+.btn-primary:active{transform:translateY(1px)}
+.btn-primary:disabled{opacity:.6;cursor:progress}
+.btn-text{font-weight:600;text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:2px}
+.btn-text:hover{text-decoration-color:var(--yellow)}
+
+/* Hero */
+.hero{padding:clamp(40px,7vw,88px) 0 clamp(64px,8vw,112px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(32px,6vw,80px);align-items:center}
+h1{margin:0 0 20px;font-size:clamp(2.25rem,5.4vw,4.25rem);font-weight:800;line-height:1.06;letter-spacing:-.03em;text-wrap:balance}
+.lead{margin:0 0 32px;max-width:34em;font-size:1.125rem;color:var(--muted)}
+.cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px}
+
+/* Chat demo */
+.phone{width:min(100%,380px);margin-inline:auto;background:var(--white);border:2px solid var(--ink);border-radius:28px;box-shadow:10px 10px 0 var(--yellow);overflow:hidden;display:flex;flex-direction:column;height:560px;height:min(560px,80svh)}
+.chat-head{display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:2px solid var(--ink)}
+.avatar{flex:none;width:40px;height:40px;border-radius:50%;background:var(--ink);color:var(--yellow);display:grid;place-items:center;font-weight:800}
+.shop{font-weight:700;line-height:1.2}
+.tag{margin-left:auto;font-size:.75rem;font-weight:600;background:var(--yellow);padding:2px 10px;border-radius:999px;white-space:nowrap}
+.chat-log{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;background:var(--paper);scroll-behavior:smooth}
+.msg{max-width:84%;padding:10px 14px;border-radius:18px;font-size:.95rem;line-height:1.45;white-space:pre-line;animation:pop .22s var(--ease)}
+.msg.bot{align-self:flex-start;background:var(--white);border-bottom-left-radius:6px}
+.msg.user{align-self:flex-end;background:var(--yellow);border-bottom-right-radius:6px;font-weight:500}
+.note{align-self:center;font-size:.8rem;color:var(--muted);text-align:center}
+.typing{align-self:flex-start;display:flex;gap:4px;padding:14px 16px;background:var(--white);border-radius:18px;border-bottom-left-radius:6px}
+.typing span{width:7px;height:7px;border-radius:50%;background:var(--muted);animation:blink 1s infinite ease-in-out}
+.typing span:nth-child(2){animation-delay:.15s}
+.typing span:nth-child(3){animation-delay:.3s}
+.chips{display:flex;flex-wrap:wrap;align-content:flex-start;gap:8px;padding:12px 16px 16px;min-height:138px;border-top:2px solid var(--ink);background:var(--white)}
+.chip{min-height:44px;padding:0 14px;border-radius:999px;border:2px solid var(--ink);background:var(--white);color:var(--ink);font-family:inherit;font-weight:600;font-size:.9rem;cursor:pointer;transition:background .2s,color .2s}
+.chip:hover{background:var(--ink);color:#fff}
+@keyframes pop{from{opacity:0;transform:translateY(6px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes blink{0%,80%,100%{opacity:.3;transform:translateY(0)}40%{opacity:1;transform:translateY(-3px)}}
+
+/* Bands */
+.band{padding:clamp(56px,8vw,104px) 0}
+.band-white{background:var(--white)}
+.band-ink{background:var(--ink);color:#fff;padding-bottom:clamp(48px,6vw,72px)}
+h2{margin:0 0 12px;font-size:clamp(1.75rem,3.6vw,2.75rem);font-weight:800;line-height:1.12;letter-spacing:-.025em;text-wrap:balance}
+.section-sub{margin:0 0 clamp(28px,5vw,48px);max-width:40em;color:var(--muted)}
+.band-ink .section-sub{color:var(--on-ink)}
+
+/* Services */
+.svc-list{border-bottom:2px solid var(--ink)}
+.svc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:16px 48px;padding:32px 0;border-top:2px solid var(--ink)}
+.svc h3{margin:0;font-size:1.5rem;font-weight:700;letter-spacing:-.015em;line-height:1.25}
+.svc p{margin:0;color:var(--muted)}
+.svc ul{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:8px}
+.svc li{position:relative;padding-left:22px}
+.svc li::before{content:"";position:absolute;left:0;top:.6em;width:10px;height:10px;border-radius:3px;background:var(--yellow);border:2px solid var(--ink)}
+
+/* Process */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.steps li{position:relative}
+.step-num{width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--yellow);display:grid;place-items:center;font-weight:800;margin-bottom:16px;position:relative;z-index:1}
+.steps li:not(:last-child)::after{content:"";position:absolute;top:21px;left:44px;right:-24px;height:2px;background:var(--ink)}
+.steps h3{margin:0 0 6px;font-size:1.15rem;font-weight:700}
+.steps p{margin:0;color:var(--muted);font-size:.95rem}
+
+/* Pilot */
+.first{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:32px;align-items:center;background:var(--paper);border-radius:24px;padding:clamp(24px,5vw,56px)}
+.first h2{font-size:clamp(1.5rem,3vw,2.25rem)}
+.first p{margin:0;color:var(--muted);max-width:38em}
+.first .btn{justify-self:start}
+
+/* FAQ */
+.faq{border-bottom:2px solid var(--ink)}
+.qa{border-top:2px solid var(--ink)}
+.qa button{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 0;border:0;background:transparent;font-family:inherit;font-weight:600;font-size:1.05rem;text-align:left;color:var(--ink);cursor:pointer}
+.qa button::after{content:"+";flex:none;font-size:1.6rem;line-height:1;font-weight:500;transition:transform .25s var(--ease)}
+.qa button[aria-expanded="true"]::after{transform:rotate(45deg)}
+.panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s var(--ease)}
+.panel.open{grid-template-rows:1fr}
+.panel>div{min-height:0;overflow:hidden}
+.panel p{margin:0;padding:0 0 20px;color:var(--muted);max-width:44em}
+
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,72px);align-items:start}
+.contact-list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.contact-list a{display:flex;flex-wrap:wrap;gap:4px 12px;text-underline-offset:4px}
+.contact-list strong{font-weight:700}
+.contact-list span{color:var(--on-ink)}
+.band-ink :focus-visible{outline-color:var(--yellow)}
+.form-card{background:var(--white);color:var(--ink);border-radius:20px;padding:clamp(20px,4vw,32px)}
+.form-card :focus-visible{outline-color:var(--teal)}
+.field{margin-bottom:16px}
+.field label{display:block;margin-bottom:6px;font-weight:600;font-size:.9rem}
+.field input,.field textarea{width:100%;min-height:48px;padding:12px 14px;border:2px solid var(--line);border-radius:10px;font-family:inherit;font-size:1rem;color:var(--ink);background:var(--white);transition:border-color .2s}
+.field input:hover,.field textarea:hover{border-color:var(--muted)}
+.field input:focus,.field textarea:focus{border-color:var(--ink)}
+.field textarea{min-height:110px;resize:vertical}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form-card .btn{width:100%}
+.status{min-height:1.6em;margin:12px 0 0;font-size:.95rem;font-weight:500}
+.status.ok{color:var(--teal)}
+.status.error{color:var(--danger)}
+
+/* Footer */
+.site-footer{background:var(--ink);color:var(--on-ink);padding:0 0 32px;font-size:.9rem}
+.site-footer .wrap{padding-top:24px;border-top:1px solid rgba(255,255,255,.18)}
+
+/* Responsive */
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:minmax(0,1fr)}
+  .contact-grid{grid-template-columns:minmax(0,1fr)}
+  .first{grid-template-columns:minmax(0,1fr)}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steps li::after{display:none!important}
+}
+@media (max-width:720px){
+  .nav-links{display:none}
+  .svc{grid-template-columns:minmax(0,1fr);gap:12px}
+}
+@media (max-width:520px){
+  .steps{grid-template-columns:minmax(0,1fr)}
+  .phone{box-shadow:8px 8px 0 var(--yellow)}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html,.chat-log{scroll-behavior:auto}
+}
 </style>
 </head>
 <body>
+<a class="skip" href="#main" data-vi="Bỏ qua điều hướng" data-en="Skip to content">Bỏ qua điều hướng</a>
 
-<header>
-  <div class="wrap nav">
+<header class="site-header">
+  <div class="wrap bar">
     <a class="logo" href="#top">Alexis</a>
-    <div class="nav-r">
-      <a class="l" href="#services" data-vi="Dịch vụ" data-en="Services">Dịch vụ</a>
-      <a class="l" href="#process" data-vi="Quy trình" data-en="Process">Quy trình</a>
-      <a class="l" href="#contact" data-vi="Liên hệ" data-en="Contact">Liên hệ</a>
-      <button class="lang" id="langBtn" type="button">EN</button>
-    </div>
+    <nav class="nav" aria-label="Main">
+      <div class="nav-links">
+        <a href="#services" data-vi="Dịch vụ" data-en="Services">Dịch vụ</a>
+        <a href="#process" data-vi="Quy trình" data-en="Process">Quy trình</a>
+        <a href="#faq" data-vi="Câu hỏi" data-en="FAQ">Câu hỏi</a>
+        <a href="#contact" data-vi="Liên hệ" data-en="Contact">Liên hệ</a>
+      </div>
+      <div class="lang" role="group" aria-label="Language / Ngôn ngữ">
+        <button type="button" data-lang="vi" aria-pressed="true">VI</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </nav>
   </div>
 </header>
 
-<main id="top">
-<div class="wrap hero">
-  <h1 data-vi="Trả lời khách 24/7, không bỏ lỡ đơn nào" data-en="Reply to customers 24/7. Never miss an order.">Trả lời khách 24/7, không bỏ lỡ đơn nào</h1>
-  <p data-vi="Mình dựng chatbot Messenger/Zalo và landing page song ngữ Anh-Việt cho doanh nghiệp nhỏ tại TP.HCM, để bạn tiết kiệm thời gian trả lời tin nhắn lặp lại."
-     data-en="I build Messenger/Zalo chatbots and bilingual English-Vietnamese landing pages for small businesses in Ho Chi Minh City, so you spend less time on repetitive messages.">Mình dựng chatbot Messenger/Zalo và landing page song ngữ Anh-Việt cho doanh nghiệp nhỏ tại TP.HCM, để bạn tiết kiệm thời gian trả lời tin nhắn lặp lại.</p>
-  <a class="btn" href="#contact" data-vi="Nhận bản demo miễn phí" data-en="Get a free demo">Nhận bản demo miễn phí</a>
-  <a class="btn alt" href="#services" data-vi="Xem dịch vụ" data-en="See services">Xem dịch vụ</a>
-</div>
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <h1 data-vi="Trả lời khách 24/7, không bỏ lỡ đơn nào" data-en="Reply to customers 24/7. Never miss an order.">Trả lời khách 24/7, không bỏ lỡ đơn nào</h1>
+        <p class="lead" data-vi="Mình dựng chatbot Messenger, Zalo và landing page song ngữ Anh-Việt cho doanh nghiệp nhỏ tại TP.HCM, để bạn bớt thời gian trả lời những tin nhắn lặp lại."
+           data-en="I build Messenger and Zalo chatbots and bilingual English-Vietnamese landing pages for small businesses in Ho Chi Minh City, so you spend less time on repeated messages.">Mình dựng chatbot Messenger, Zalo và landing page song ngữ Anh-Việt cho doanh nghiệp nhỏ tại TP.HCM, để bạn bớt thời gian trả lời những tin nhắn lặp lại.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#contact" data-vi="Nhận bản demo miễn phí" data-en="Get a free demo">Nhận bản demo miễn phí</a>
+          <a class="btn-text" href="#services" data-vi="Xem dịch vụ" data-en="See services">Xem dịch vụ</a>
+        </div>
+      </div>
 
-<section id="services"><div class="wrap">
-  <h2 data-vi="Dịch vụ" data-en="Services">Dịch vụ</h2>
-  <p class="sub" data-vi="Gọn, rõ phạm vi, giao trong vài ngày." data-en="Simple, clear scope, delivered in days.">Gọn, rõ phạm vi, giao trong vài ngày.</p>
-  <div class="grid">
-    <div class="card">
-      <h3 data-vi="Chatbot trả lời tự động" data-en="Auto-reply chatbot">Chatbot trả lời tự động</h3>
-      <p data-vi="Bot trả lời các câu hỏi lặp lại và chuyển cho bạn khi cần." data-en="A bot that answers repeated questions and hands over to you when needed.">Bot trả lời các câu hỏi lặp lại và chuyển cho bạn khi cần.</p>
-      <ul>
-        <li data-vi="Messenger, Zalo, website" data-en="Messenger, Zalo, website">Messenger, Zalo, website</li>
-        <li data-vi="10-15 câu FAQ do bạn duyệt" data-en="10-15 FAQs approved by you">10-15 câu FAQ do bạn duyệt</li>
-        <li data-vi="Thu thập tên, SĐT, đơn hàng vào Google Sheets" data-en="Collects name, phone, orders into Google Sheets">Thu thập tên, SĐT, đơn hàng vào Google Sheets</li>
-      </ul>
+      <div class="phone" role="group" aria-label="Chatbot demo">
+        <div class="chat-head">
+          <div class="avatar" aria-hidden="true">B</div>
+          <div class="shop" id="shopName">Tiệm Trà Sữa Bơ Sữa</div>
+          <div class="tag" id="demoTag">Bản demo</div>
+        </div>
+        <div class="chat-log" id="chatLog" role="log" aria-live="polite" aria-label="Chat"></div>
+        <div class="chips" id="chips"></div>
+      </div>
     </div>
-    <div class="card">
-      <h3 data-vi="Landing page song ngữ" data-en="Bilingual landing page">Landing page song ngữ</h3>
-      <p data-vi="Một trang gọn, nhanh, có nút chuyển Anh-Việt để đón cả khách trong nước và người nước ngoài." data-en="One fast, clean page with an English-Vietnamese switch for local and international customers.">Một trang gọn, nhanh, có nút chuyển Anh-Việt để đón cả khách trong nước và người nước ngoài.</p>
-      <ul>
-        <li data-vi="Form liên hệ nối thẳng vào Sheets" data-en="Contact form connected to Sheets">Form liên hệ nối thẳng vào Sheets</li>
-        <li data-vi="Hiển thị tốt trên điện thoại" data-en="Mobile friendly">Hiển thị tốt trên điện thoại</li>
-        <li data-vi="Báo email khi có khách mới" data-en="Email alert for every new lead">Báo email khi có khách mới</li>
-      </ul>
+  </section>
+
+  <section class="band band-white" id="services">
+    <div class="wrap">
+      <h2 data-vi="Dịch vụ" data-en="Services">Dịch vụ</h2>
+      <p class="section-sub" data-vi="Phạm vi rõ ràng, giao trong vài ngày." data-en="Clear scope, delivered in days.">Phạm vi rõ ràng, giao trong vài ngày.</p>
+      <div class="svc-list">
+        <div class="svc">
+          <h3 data-vi="Chatbot trả lời tự động" data-en="Auto-reply chatbot">Chatbot trả lời tự động</h3>
+          <div>
+            <p data-vi="Trả lời giúp bạn những câu khách hay hỏi như giá, ship, giờ mở cửa. Gặp câu khó thì chuyển cho bạn." data-en="Answers the questions customers ask most, like prices, delivery and opening hours. Hands over to you when a question is too hard.">Trả lời giúp bạn những câu khách hay hỏi như giá, ship, giờ mở cửa. Gặp câu khó thì chuyển cho bạn.</p>
+            <ul>
+              <li data-vi="Messenger, Zalo hoặc website" data-en="Messenger, Zalo or website">Messenger, Zalo hoặc website</li>
+              <li data-vi="10-15 câu hỏi thường gặp do bạn duyệt" data-en="10-15 common questions, approved by you">10-15 câu hỏi thường gặp do bạn duyệt</li>
+              <li data-vi="Tên, số điện thoại và đơn hàng tự vào Google Sheets" data-en="Names, phone numbers and orders go straight into Google Sheets">Tên, số điện thoại và đơn hàng tự vào Google Sheets</li>
+            </ul>
+          </div>
+        </div>
+        <div class="svc">
+          <h3 data-vi="Landing page song ngữ" data-en="Bilingual landing page">Landing page song ngữ</h3>
+          <div>
+            <p data-vi="Một trang gọn, tải nhanh, có nút chuyển Anh-Việt cho khách trong nước và người nước ngoài." data-en="One clean, fast page with an English-Vietnamese switch for local and international customers.">Một trang gọn, tải nhanh, có nút chuyển Anh-Việt cho khách trong nước và người nước ngoài.</p>
+            <ul>
+              <li data-vi="Form liên hệ nối thẳng vào Google Sheets" data-en="Contact form connected to Google Sheets">Form liên hệ nối thẳng vào Google Sheets</li>
+              <li data-vi="Hiển thị tốt trên điện thoại" data-en="Works well on phones">Hiển thị tốt trên điện thoại</li>
+              <li data-vi="Email báo mỗi khi có khách mới" data-en="Email alert for every new lead">Email báo mỗi khi có khách mới</li>
+            </ul>
+          </div>
+        </div>
+        <div class="svc">
+          <h3 data-vi="Tự động hóa quy trình" data-en="Workflow automation">Tự động hóa quy trình</h3>
+          <div>
+            <p data-vi="Đơn hàng, khách hỏi mua và báo cáo tuần được ghi và gửi tự động." data-en="Orders, inquiries and weekly reports are recorded and sent automatically.">Đơn hàng, khách hỏi mua và báo cáo tuần được ghi và gửi tự động.</p>
+            <ul>
+              <li data-vi="Google Sheets và Apps Script" data-en="Google Sheets and Apps Script">Google Sheets và Apps Script</li>
+              <li data-vi="Báo cáo hằng tuần qua email" data-en="Weekly report by email">Báo cáo hằng tuần qua email</li>
+              <li data-vi="Hướng dẫn sử dụng 1 trang" data-en="One-page usage guide">Hướng dẫn sử dụng 1 trang</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="card">
-      <h3 data-vi="Tự động hóa quy trình" data-en="Workflow automation">Tự động hóa quy trình</h3>
-      <p data-vi="Đơn hàng, khách hỏi mua và báo cáo tuần được ghi và gửi tự động." data-en="Orders, inquiries and weekly reports recorded and sent automatically.">Đơn hàng, khách hỏi mua và báo cáo tuần được ghi và gửi tự động.</p>
-      <ul>
-        <li data-vi="Google Sheets + Apps Script" data-en="Google Sheets + Apps Script">Google Sheets + Apps Script</li>
-        <li data-vi="Báo cáo hằng tuần qua email" data-en="Weekly email report">Báo cáo hằng tuần qua email</li>
-        <li data-vi="Tài liệu hướng dẫn 1 trang" data-en="One-page handover guide">Tài liệu hướng dẫn 1 trang</li>
-      </ul>
+  </section>
+
+  <section class="band" id="process">
+    <div class="wrap">
+      <h2 data-vi="Quy trình 4 bước" data-en="Four steps">Quy trình 4 bước</h2>
+      <p class="section-sub" data-vi="Lên kế hoạch kỹ trước khi dựng, để bot chạy trơn tru." data-en="Plan carefully before building, so the bot runs smoothly.">Lên kế hoạch kỹ trước khi dựng, để bot chạy trơn tru.</p>
+      <ol class="steps">
+        <li>
+          <div class="step-num" aria-hidden="true">1</div>
+          <h3 data-vi="Khảo sát" data-en="Discover">Khảo sát</h3>
+          <p data-vi="Gọi 15-20 phút để hiểu khách của bạn hay hỏi gì." data-en="A 15-20 minute call to learn what your customers ask most.">Gọi 15-20 phút để hiểu khách của bạn hay hỏi gì.</p>
+        </li>
+        <li>
+          <div class="step-num" aria-hidden="true">2</div>
+          <h3 data-vi="Lên kế hoạch" data-en="Plan">Lên kế hoạch</h3>
+          <p data-vi="Soạn bộ câu hỏi và câu trả lời. Bạn duyệt trước khi dựng." data-en="Draft the questions and answers. You approve them before building.">Soạn bộ câu hỏi và câu trả lời. Bạn duyệt trước khi dựng.</p>
+        </li>
+        <li>
+          <div class="step-num" aria-hidden="true">3</div>
+          <h3 data-vi="Dựng và thử" data-en="Build and test">Dựng và thử</h3>
+          <p data-vi="Dựng bot và thử ít nhất 20 tình huống thật." data-en="Build the bot and test at least 20 real situations.">Dựng bot và thử ít nhất 20 tình huống thật.</p>
+        </li>
+        <li>
+          <div class="step-num" aria-hidden="true">4</div>
+          <h3 data-vi="Bàn giao" data-en="Hand over">Bàn giao</h3>
+          <p data-vi="Gửi hướng dẫn 1 trang, theo dõi 1-2 tuần và cập nhật khi bot trả lời chưa tốt." data-en="A one-page guide, then 1-2 weeks of monitoring and fixes where the bot falls short.">Gửi hướng dẫn 1 trang, theo dõi 1-2 tuần và cập nhật khi bot trả lời chưa tốt.</p>
+        </li>
+      </ol>
     </div>
-  </div>
-</div></section>
+  </section>
 
-<section id="process"><div class="wrap">
-  <h2 data-vi="Quy trình 4 bước" data-en="4-step process">Quy trình 4 bước</h2>
-  <p class="sub" data-vi="Lập kế hoạch kỹ trước khi dựng, để bot chạy trơn tru." data-en="Careful planning first, so everything runs smoothly.">Lập kế hoạch kỹ trước khi dựng, để bot chạy trơn tru.</p>
-  <div class="grid">
-    <div class="card"><div class="num">1</div><h3 data-vi="Khảo sát" data-en="Discover">Khảo sát</h3><p data-vi="Gọi 15-20 phút để hiểu khách của bạn hay hỏi gì." data-en="A 15-20 minute call to learn what your customers ask most.">Gọi 15-20 phút để hiểu khách của bạn hay hỏi gì.</p></div>
-    <div class="card"><div class="num">2</div><h3 data-vi="Lên kế hoạch" data-en="Plan">Lên kế hoạch</h3><p data-vi="Soạn FAQ và kịch bản trả lời, bạn duyệt trước khi dựng." data-en="Draft FAQs and reply flows for your approval before building.">Soạn FAQ và kịch bản trả lời, bạn duyệt trước khi dựng.</p></div>
-    <div class="card"><div class="num">3</div><h3 data-vi="Dựng và kiểm thử" data-en="Build & test">Dựng và kiểm thử</h3><p data-vi="Dựng bot, thử ít nhất 20 tình huống thực tế." data-en="Build the bot and test at least 20 real scenarios.">Dựng bot, thử ít nhất 20 tình huống thực tế.</p></div>
-    <div class="card"><div class="num">4</div><h3 data-vi="Bàn giao và theo dõi" data-en="Handover & follow-up">Bàn giao và theo dõi</h3><p data-vi="Hướng dẫn sử dụng, theo dõi 1-2 tuần và cập nhật FAQ." data-en="Usage guide, then 1-2 weeks of monitoring and FAQ updates.">Hướng dẫn sử dụng, theo dõi 1-2 tuần và cập nhật FAQ.</p></div>
-  </div>
-</div></section>
+  <section class="band band-white" id="pilot">
+    <div class="wrap">
+      <div class="first">
+        <div>
+          <h2 data-vi="Đang nhận 2-3 dự án thử nghiệm đầu tiên" data-en="Taking the first 2-3 pilot projects">Đang nhận 2-3 dự án thử nghiệm đầu tiên</h2>
+          <p data-vi="Mình là Alexis, sinh viên Business English tại UEH. Mình dựng chatbot và trang web bằng AI nên làm nhanh, và trao đổi được bằng cả tiếng Anh lẫn tiếng Việt với khách của bạn. Dự án đầu tiên làm miễn phí hoặc giá thử, đổi lại bạn cho mình dùng kết quả làm ví dụ."
+             data-en="I'm Alexis, a Business English student at UEH. I build chatbots and websites with AI, so I work fast, and I can talk to your customers in both English and Vietnamese. The first projects are free or at a trial price, in exchange for using the results as examples.">Mình là Alexis, sinh viên Business English tại UEH. Mình dựng chatbot và trang web bằng AI nên làm nhanh, và trao đổi được bằng cả tiếng Anh lẫn tiếng Việt với khách của bạn. Dự án đầu tiên làm miễn phí hoặc giá thử, đổi lại bạn cho mình dùng kết quả làm ví dụ.</p>
+        </div>
+        <a class="btn btn-primary" href="#contact" data-vi="Đăng ký làm thử" data-en="Apply for a pilot">Đăng ký làm thử</a>
+      </div>
+    </div>
+  </section>
 
-<section id="cases"><div class="wrap">
-  <h2 data-vi="Dự án tiêu biểu" data-en="Case studies">Dự án tiêu biểu</h2>
-  <p class="sub" data-vi="Đang nhận 2-3 dự án thử nghiệm đầu tiên." data-en="Now taking the first 2-3 pilot projects.">Đang nhận 2-3 dự án thử nghiệm đầu tiên.</p>
-  <div class="grid">
-    <div class="card ph"><h3 data-vi="Dự án 1" data-en="Project 1">Dự án 1</h3><p data-vi="[Thêm tên shop, vấn đề, kết quả sau khi hoàn thành]" data-en="[Add business, problem and result after completion]">[Thêm tên shop, vấn đề, kết quả sau khi hoàn thành]</p></div>
-    <div class="card ph"><h3 data-vi="Dự án 2" data-en="Project 2">Dự án 2</h3><p data-vi="[Thêm tên shop, vấn đề, kết quả sau khi hoàn thành]" data-en="[Add business, problem and result after completion]">[Thêm tên shop, vấn đề, kết quả sau khi hoàn thành]</p></div>
-  </div>
-</div></section>
+  <section class="band" id="faq">
+    <div class="wrap">
+      <h2 data-vi="Câu hỏi thường gặp" data-en="Common questions">Câu hỏi thường gặp</h2>
+      <p class="section-sub" data-vi="Những điều chủ shop hay hỏi trước khi bắt đầu." data-en="What business owners usually ask before starting.">Những điều chủ shop hay hỏi trước khi bắt đầu.</p>
+      <div class="faq">
+        <div class="qa">
+          <h3><button type="button" aria-expanded="false" aria-controls="a1" id="q1" data-vi="Mất bao lâu để có chatbot?" data-en="How long does a chatbot take?">Mất bao lâu để có chatbot?</button></h3>
+          <div class="panel" id="a1" role="region" aria-labelledby="q1"><div><p data-vi="Thường 3-5 ngày kể từ khi bạn duyệt xong bộ câu hỏi thường gặp." data-en="Usually 3-5 days after you approve the set of common questions.">Thường 3-5 ngày kể từ khi bạn duyệt xong bộ câu hỏi thường gặp.</p></div></div>
+        </div>
+        <div class="qa">
+          <h3><button type="button" aria-expanded="false" aria-controls="a2" id="q2" data-vi="Mình có phải đưa mật khẩu Facebook không?" data-en="Do I need to share my Facebook password?">Mình có phải đưa mật khẩu Facebook không?</button></h3>
+          <div class="panel" id="a2" role="region" aria-labelledby="q2"><div><p data-vi="Không. Bạn chỉ cần thêm mình vào Meta Business Suite với quyền vừa đủ, và có thể gỡ bất cứ lúc nào." data-en="No. You just add me in Meta Business Suite with limited access, and you can remove me at any time.">Không. Bạn chỉ cần thêm mình vào Meta Business Suite với quyền vừa đủ, và có thể gỡ bất cứ lúc nào.</p></div></div>
+        </div>
+        <div class="qa">
+          <h3><button type="button" aria-expanded="false" aria-controls="a3" id="q3" data-vi="Dữ liệu khách hàng lưu ở đâu?" data-en="Where is customer data stored?">Dữ liệu khách hàng lưu ở đâu?</button></h3>
+          <div class="panel" id="a3" role="region" aria-labelledby="q3"><div><p data-vi="Trong Google Sheets thuộc tài khoản của bạn. Mình không giữ bản sao riêng." data-en="In a Google Sheet under your own account. I keep no separate copy.">Trong Google Sheets thuộc tài khoản của bạn. Mình không giữ bản sao riêng.</p></div></div>
+        </div>
+        <div class="qa">
+          <h3><button type="button" aria-expanded="false" aria-controls="a4" id="q4" data-vi="Bot không trả lời được thì sao?" data-en="What if the bot can't answer?">Bot không trả lời được thì sao?</button></h3>
+          <div class="panel" id="a4" role="region" aria-labelledby="q4"><div><p data-vi="Luôn có nút chuyển cho nhân viên, nên khách không bao giờ bị kẹt." data-en="There is always a button to hand over to a person, so customers never get stuck.">Luôn có nút chuyển cho nhân viên, nên khách không bao giờ bị kẹt.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section id="faq"><div class="wrap">
-  <h2 data-vi="Câu hỏi thường gặp" data-en="FAQ">Câu hỏi thường gặp</h2>
-  <p class="sub"></p>
-  <details><summary data-vi="Mất bao lâu để có chatbot?" data-en="How long does a chatbot take?">Mất bao lâu để có chatbot?</summary>
-    <p data-vi="Thường 3-5 ngày kể từ khi bạn duyệt xong bộ FAQ." data-en="Usually 3-5 days after you approve the FAQ set.">Thường 3-5 ngày kể từ khi bạn duyệt xong bộ FAQ.</p></details>
-  <details><summary data-vi="Mình có phải đưa mật khẩu Facebook không?" data-en="Do I need to share my Facebook password?">Mình có phải đưa mật khẩu Facebook không?</summary>
-    <p data-vi="Không. Bạn chỉ cần thêm mình vào Meta Business Suite với quyền vừa đủ và có thể gỡ bất cứ lúc nào." data-en="No. You just add me in Meta Business Suite with limited access and can remove me anytime.">Không. Bạn chỉ cần thêm mình vào Meta Business Suite với quyền vừa đủ và có thể gỡ bất cứ lúc nào.</p></details>
-  <details><summary data-vi="Dữ liệu khách hàng lưu ở đâu?" data-en="Where is customer data stored?">Dữ liệu khách hàng lưu ở đâu?</summary>
-    <p data-vi="Trong Google Sheets thuộc tài khoản của bạn. Mình không lưu bản sao riêng." data-en="In a Google Sheet under your own account. I keep no separate copy.">Trong Google Sheets thuộc tài khoản của bạn. Mình không lưu bản sao riêng.</p></details>
-  <details><summary data-vi="Bot không trả lời được thì sao?" data-en="What if the bot can't answer?">Bot không trả lời được thì sao?</summary>
-    <p data-vi="Luôn có nút chuyển cho nhân viên, nên khách không bao giờ bị kẹt." data-en="There is always a hand-over button to a human, so customers are never stuck.">Luôn có nút chuyển cho nhân viên, nên khách không bao giờ bị kẹt.</p></details>
-</div></section>
-
-<section id="contact"><div class="wrap">
-  <h2 data-vi="Liên hệ" data-en="Contact">Liên hệ</h2>
-  <p class="sub" data-vi="Để lại thông tin, mình sẽ phản hồi sớm." data-en="Leave your details and I'll reply soon.">Để lại thông tin, mình sẽ phản hồi sớm.</p>
-  <form id="leadForm">
-    <input name="name" required placeholder="Họ tên" data-ph-vi="Họ tên" data-ph-en="Your name">
-    <input name="phone" required placeholder="SĐT / Zalo" data-ph-vi="SĐT / Zalo" data-ph-en="Phone / Zalo / WhatsApp">
-    <textarea name="message" placeholder="Bạn cần hỗ trợ gì?" data-ph-vi="Bạn cần hỗ trợ gì?" data-ph-en="How can I help?"></textarea>
-    <input name="website" style="display:none" tabindex="-1" autocomplete="off">
-    <button class="btn" type="submit" data-vi="Gửi" data-en="Send">Gửi</button>
-    <p id="msg"></p>
-  </form>
-  <div class="contacts">
-    <a href="https://zalo.me/0898200106">Zalo</a>
-    <a href="https://m.me/TEN_PAGE_CUA_BAN">Messenger</a>
-    <a href="mailto:alexis.ngocnguyen@gmail.com">Email</a>
-    <a href="https://www.linkedin.com/in/bảo-ngọc-nguyễn-24826839b">LinkedIn</a>
-  </div>
-</div></section>
+  <section class="band band-ink" id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <h2 data-vi="Liên hệ" data-en="Contact">Liên hệ</h2>
+        <p class="section-sub" data-vi="Để lại thông tin, mình sẽ phản hồi sớm." data-en="Leave your details and I'll reply soon.">Để lại thông tin, mình sẽ phản hồi sớm.</p>
+        <ul class="contact-list" id="contactList"></ul>
+      </div>
+      <form class="form-card" id="leadForm" novalidate>
+        <div class="field">
+          <label for="f-name" data-vi="Họ tên" data-en="Name">Họ tên</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="f-phone" data-vi="Số điện thoại hoặc Zalo" data-en="Phone or Zalo">Số điện thoại hoặc Zalo</label>
+          <input id="f-phone" name="phone" type="tel" autocomplete="tel" required>
+        </div>
+        <div class="field">
+          <label for="f-msg" data-vi="Bạn cần hỗ trợ gì? (không bắt buộc)" data-en="How can I help? (optional)">Bạn cần hỗ trợ gì? (không bắt buộc)</label>
+          <textarea id="f-msg" name="message"></textarea>
+        </div>
+        <div class="hp" aria-hidden="true"><label>Website<input name="website" type="text" tabindex="-1" autocomplete="off"></label></div>
+        <input type="hidden" name="source" value="website">
+        <button class="btn btn-primary" type="submit" id="submitBtn" data-vi="Gửi" data-en="Send">Gửi</button>
+        <p class="status" id="status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
 </main>
 
-<footer><div class="wrap">© <span id="yr"></span> Alexis · Ho Chi Minh City</div></footer>
+<footer class="site-footer">
+  <div class="wrap">&copy; <span id="yr"></span> Alexis, Ho Chi Minh City</div>
+</footer>
 
 <script>
-// ====== CHỈNH Ở ĐÂY ======
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzMhPGmuswDx4Gdq1u7d1DOB9Xy0XF7C8sdFUt-kGcLsXXap3rGprkv74BnWrn8GFKB/exec'; // URL Apps Script (Web app)
-// =========================
+(function () {
+  'use strict';
 
-let lang = 'vi';
-function applyLang(){
-  document.documentElement.lang = lang;
-  document.querySelectorAll('[data-vi]').forEach(el => { el.textContent = el.dataset[lang]; });
-  document.querySelectorAll('[data-ph-vi]').forEach(el => { el.placeholder = el.dataset[lang === 'vi' ? 'phVi' : 'phEn']; });
-  document.getElementById('langBtn').textContent = lang === 'vi' ? 'EN' : 'VI';
-  try { localStorage.setItem('lang', lang); } catch(e){}
-}
-try { const s = localStorage.getItem('lang'); if (s) lang = s; else if (!navigator.language.startsWith('vi')) lang = 'en'; } catch(e){}
-document.getElementById('langBtn').addEventListener('click', () => { lang = lang === 'vi' ? 'en' : 'vi'; applyLang(); });
-applyLang();
-document.getElementById('yr').textContent = new Date().getFullYear();
+  /* ====== CHỈNH Ở ĐÂY ======
+     Để trống thì mục đó tự ẩn. Chỉ điền phần cần thiết:
+     SCRIPT_URL: Web app URL của Apps Script (có dạng https://script.google.com/macros/s/.../exec)
+     ZALO: số điện thoại Zalo, ví dụ 0901234567
+     MESSENGER: tên người dùng của Fanpage (phần sau m.me/)
+     EMAIL: email liên hệ
+     LINKEDIN: phần cuối đường link LinkedIn (phần sau /in/) */
+  var CONFIG = {
+    SCRIPT_URL: '',
+    ZALO: '0898200106',
+    MESSENGER: '',
+    EMAIL: 'alexis.ngocnguyen@gmail.com',
+    LINKEDIN: 'bảo-ngọc-nguyễn-24826839b'
+  };
+  /* ========================= */
 
-document.getElementById('leadForm').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const msg = document.getElementById('msg');
-  if (SCRIPT_URL.startsWith('PASTE')) { msg.style.color = '#b91c1c'; msg.textContent = 'Chưa gắn SCRIPT_URL.'; return; }
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var lang = 'vi';
   try {
-    await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(e.target)) });
-    e.target.reset();
-    msg.style.color = '#15803d';
-    msg.textContent = lang === 'vi' ? 'Đã gửi! Mình sẽ liên hệ sớm.' : 'Sent! I will get back to you soon.';
-  } catch (err) {
-    msg.style.color = '#b91c1c';
-    msg.textContent = lang === 'vi' ? 'Gửi lỗi, bạn thử lại hoặc nhắn Zalo nhé.' : 'Something went wrong. Please try again or message on Zalo.';
+    var saved = localStorage.getItem('lang');
+    if (saved === 'vi' || saved === 'en') lang = saved;
+    else if (!(navigator.language || 'vi').toLowerCase().startsWith('vi')) lang = 'en';
+  } catch (e) {}
+
+  var TEXT = {
+    vi: {
+      title: 'Alexis | Chatbot và landing page cho doanh nghiệp nhỏ',
+      sending: 'Đang gửi…',
+      sent: 'Đã gửi. Mình sẽ liên hệ với bạn sớm.',
+      fail: 'Chưa gửi được. Bạn thử lại hoặc nhắn qua Zalo nhé.',
+      notReady: 'Form chưa được kết nối. Bạn nhắn qua Zalo hoặc email giúp mình nhé.',
+      missing: 'Bạn điền họ tên và số điện thoại giúp mình nhé.',
+      replay: 'Chạy lại demo'
+    },
+    en: {
+      title: 'Alexis | Chatbots and landing pages for small businesses',
+      sending: 'Sending…',
+      sent: 'Sent. I will get back to you soon.',
+      fail: 'Could not send. Please try again or message me on Zalo.',
+      notReady: 'The form is not connected yet. Please message me on Zalo or email.',
+      missing: 'Please fill in your name and phone number.',
+      replay: 'Replay demo'
+    }
+  };
+
+  var DEMO = {
+    vi: {
+      shop: 'Tiệm Trà Sữa Bơ Sữa',
+      tag: 'Bản demo',
+      greet: 'Chào bạn! Mình là trợ lý của tiệm. Bạn cần mình giúp gì?',
+      handover: 'Bot tạm dừng. Nhân viên sẽ tiếp tục cuộc trò chuyện.',
+      opts: [
+        { id: 'menu', label: 'Xem menu và giá', reply: 'Menu hôm nay:\nTrà sữa bơ: 45.000đ\nTrà đào cam sả: 39.000đ\nCà phê muối: 35.000đ' },
+        { id: 'hours', label: 'Giờ mở cửa và địa chỉ', reply: 'Tiệm mở từ 8:00 đến 22:00 mỗi ngày.\nĐịa chỉ: 123 Đường Mẫu, Quận 7.' },
+        { id: 'order', label: 'Đặt món', reply: 'Bạn cho mình biết món và số lượng nhé, ví dụ "2 trà sữa bơ". Sau đó mình ghi lại tên và số điện thoại để tiệm xác nhận đơn.' },
+        { id: 'human', label: 'Chat với nhân viên', reply: 'Mình chuyển cuộc trò chuyện cho nhân viên nhé. Bạn sẽ được trả lời trong ít phút.' }
+      ]
+    },
+    en: {
+      shop: 'Butter Milk Tea House',
+      tag: 'Demo',
+      greet: 'Hi! I\'m the shop\'s assistant. How can I help?',
+      handover: 'Bot paused. A team member will continue the chat.',
+      opts: [
+        { id: 'menu', label: 'See menu and prices', reply: 'Today\'s menu:\nButter milk tea: 45,000 VND\nPeach lemongrass tea: 39,000 VND\nSalted coffee: 35,000 VND' },
+        { id: 'hours', label: 'Opening hours and address', reply: 'We\'re open 8:00 to 22:00 every day.\nAddress: 123 Mau Street, District 7.' },
+        { id: 'order', label: 'Place an order', reply: 'Tell me the drink and quantity, for example "2 butter milk teas". Then I\'ll take your name and phone number so the shop can confirm.' },
+        { id: 'human', label: 'Talk to a person', reply: 'I\'ll hand this chat over to a team member. You\'ll get a reply in a few minutes.' }
+      ]
+    }
+  };
+
+  var log = document.getElementById('chatLog');
+  var chips = document.getElementById('chips');
+  var run = 0;
+  var busy = false;
+  var asked = new Set();
+
+  function sleep(ms) {
+    return new Promise(function (r) { setTimeout(r, reduce ? 0 : ms); });
   }
-});
+  function toBottom() { log.scrollTop = log.scrollHeight; }
+  function addMsg(text, cls) {
+    var d = document.createElement('div');
+    d.className = 'msg ' + cls;
+    d.textContent = text;
+    log.appendChild(d);
+    toBottom();
+  }
+  function addNote(text) {
+    var d = document.createElement('div');
+    d.className = 'note';
+    d.textContent = text;
+    log.appendChild(d);
+    toBottom();
+  }
+  async function botSay(text, id) {
+    var t = document.createElement('div');
+    t.className = 'typing';
+    t.setAttribute('aria-hidden', 'true');
+    t.innerHTML = '<span></span><span></span><span></span>';
+    log.appendChild(t);
+    toBottom();
+    await sleep(750);
+    t.remove();
+    if (id !== run) return false;
+    addMsg(text, 'bot');
+    return true;
+  }
+  function makeChip(label, onClick) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'chip';
+    b.textContent = label;
+    b.addEventListener('click', onClick);
+    chips.appendChild(b);
+  }
+  function showChips() {
+    chips.innerHTML = '';
+    var d = DEMO[lang];
+    var left = d.opts.filter(function (o) { return !asked.has(o.id); });
+    if (!left.length || asked.has('human')) {
+      makeChip(TEXT[lang].replay, play);
+      return;
+    }
+    left.forEach(function (o) { makeChip(o.label, function () { choose(o); }); });
+  }
+  async function choose(o) {
+    if (busy) return;
+    busy = true;
+    var id = run;
+    asked.add(o.id);
+    chips.innerHTML = '';
+    addMsg(o.label, 'user');
+    await sleep(250);
+    if (id !== run) return;
+    if (!(await botSay(o.reply, id))) return;
+    if (o.id === 'human') addNote(DEMO[lang].handover);
+    showChips();
+    busy = false;
+  }
+  async function play() {
+    var id = ++run;
+    busy = true;
+    asked = new Set(['menu']);
+    log.innerHTML = '';
+    chips.innerHTML = '';
+    var d = DEMO[lang];
+    document.getElementById('shopName').textContent = d.shop;
+    document.getElementById('demoTag').textContent = d.tag;
+    await sleep(500);
+    if (id !== run) return;
+    if (!(await botSay(d.greet, id))) return;
+    await sleep(900);
+    if (id !== run) return;
+    addMsg(d.opts[0].label, 'user');
+    await sleep(300);
+    if (id !== run) return;
+    if (!(await botSay(d.opts[0].reply, id))) return;
+    showChips();
+    busy = false;
+  }
+
+  /* Language */
+  function applyLang() {
+    document.documentElement.lang = lang;
+    document.title = TEXT[lang].title;
+    document.querySelectorAll('[data-vi]').forEach(function (el) {
+      el.textContent = el.getAttribute('data-' + lang);
+    });
+    document.querySelectorAll('.lang button').forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.dataset.lang === lang));
+    });
+    try { localStorage.setItem('lang', lang); } catch (e) {}
+  }
+  document.querySelectorAll('.lang button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      if (b.dataset.lang === lang) return;
+      lang = b.dataset.lang;
+      applyLang();
+      play();
+    });
+  });
+
+  /* FAQ accordion */
+  document.querySelectorAll('.qa button').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      document.getElementById(btn.getAttribute('aria-controls')).classList.toggle('open', !open);
+    });
+  });
+
+  /* Contact links */
+  (function renderContacts() {
+    var list = document.getElementById('contactList');
+    var items = [
+      ['Zalo', CONFIG.ZALO, function (v) { return 'https://zalo.me/' + v.replace(/\s+/g, ''); }],
+      ['Messenger', CONFIG.MESSENGER, function (v) { return 'https://m.me/' + v; }],
+      ['Email', CONFIG.EMAIL, function (v) { return 'mailto:' + v; }],
+      ['LinkedIn', CONFIG.LINKEDIN, function (v) { return 'https://www.linkedin.com/in/' + encodeURIComponent(v); }]
+    ];
+    items.forEach(function (it) {
+      if (!it[1]) return;
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      var href = it[2](it[1]);
+      a.href = href;
+      if (href.indexOf('mailto:') !== 0) { a.target = '_blank'; a.rel = 'noopener'; }
+      var s = document.createElement('strong');
+      s.textContent = it[0];
+      var v = document.createElement('span');
+      v.textContent = it[1];
+      a.appendChild(s);
+      a.appendChild(v);
+      li.appendChild(a);
+      list.appendChild(li);
+    });
+  })();
+
+  /* Form */
+  var form = document.getElementById('leadForm');
+  var statusEl = document.getElementById('status');
+  var submitBtn = document.getElementById('submitBtn');
+  function setStatus(text, kind) {
+    statusEl.textContent = text;
+    statusEl.className = 'status' + (kind ? ' ' + kind : '');
+  }
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    setStatus('', '');
+    if (form.website.value) return;
+    if (!form.name.value.trim() || !form.phone.value.trim()) {
+      setStatus(TEXT[lang].missing, 'error');
+      return;
+    }
+    if (!CONFIG.SCRIPT_URL) {
+      setStatus(TEXT[lang].notReady, 'error');
+      return;
+    }
+    submitBtn.disabled = true;
+    submitBtn.textContent = TEXT[lang].sending;
+    try {
+      await fetch(CONFIG.SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) });
+      form.reset();
+      setStatus(TEXT[lang].sent, 'ok');
+    } catch (err) {
+      setStatus(TEXT[lang].fail, 'error');
+    }
+    submitBtn.disabled = false;
+    submitBtn.textContent = submitBtn.getAttribute('data-' + lang);
+  });
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  applyLang();
+  play();
+})();
 </script>
 </body>
 </html>
