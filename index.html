@@ -1,11 +1,194 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Test</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alex | Chatbot & Landing Page cho doanh nghiệp nhỏ</title>
+<meta name="description" content="Chatbot Messenger/Zalo và landing page song ngữ Anh-Việt cho doanh nghiệp nhỏ tại TP.HCM.">
+<style>
+:root{--navy:#0f2547;--blue:#2563eb;--bg:#f7f8fb;--card:#fff;--text:#1c2433;--muted:#5b6678;--line:#e3e7ef}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.6}
+.wrap{max-width:1020px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:10}
+.nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-weight:700;color:var(--navy);text-decoration:none;font-size:18px}
+.nav-r{display:flex;align-items:center;gap:18px}
+.nav a.l{color:var(--muted);text-decoration:none;font-size:14px}
+.lang{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 14px;font-size:13px;cursor:pointer;font-weight:600;color:var(--navy)}
+.hero{padding:80px 0 60px;text-align:center}
+.hero h1{font-size:clamp(30px,5vw,48px);color:var(--navy);line-height:1.2;margin-bottom:16px}
+.hero p{font-size:18px;color:var(--muted);max-width:640px;margin:0 auto 28px}
+.btn{display:inline-block;background:var(--blue);color:#fff;text-decoration:none;padding:13px 26px;border-radius:10px;font-weight:600;border:0;cursor:pointer;font-size:16px}
+.btn.alt{background:#fff;color:var(--navy);border:1px solid var(--line);margin-left:8px}
+section{padding:56px 0}
+h2{font-size:28px;color:var(--navy);margin-bottom:8px}
+.sub{color:var(--muted);margin-bottom:28px}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+.card h3{font-size:18px;color:var(--navy);margin-bottom:8px}
+.card p,.card li{color:var(--muted);font-size:15px}
+.card ul{padding-left:18px;margin-top:8px}
+.num{display:inline-flex;width:30px;height:30px;border-radius:50%;background:var(--blue);color:#fff;align-items:center;justify-content:center;font-weight:700;margin-bottom:10px}
+.ph{border-style:dashed;text-align:center;color:var(--muted)}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:600;color:var(--navy)}
+details p{margin-top:10px;color:var(--muted);font-size:15px}
+form{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;max-width:560px}
+input,textarea{width:100%;padding:12px 14px;margin-bottom:12px;border:1px solid var(--line);border-radius:10px;font:inherit}
+textarea{min-height:100px;resize:vertical}
+.contacts{margin-top:18px;display:flex;gap:14px;flex-wrap:wrap}
+.contacts a{color:var(--blue);text-decoration:none;font-weight:600}
+#msg{margin-top:10px;font-size:14px;color:#15803d}
+footer{padding:30px 0;text-align:center;color:var(--muted);font-size:14px;border-top:1px solid var(--line);margin-top:30px}
+@media(max-width:600px){.nav a.l{display:none}.btn.alt{margin:10px 0 0}}
+</style>
 </head>
 <body>
-  <h1>Web của mình đã chạy!</h1>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">Alex</a>
+    <div class="nav-r">
+      <a class="l" href="#services" data-vi="Dịch vụ" data-en="Services">Dịch vụ</a>
+      <a class="l" href="#process" data-vi="Quy trình" data-en="Process">Quy trình</a>
+      <a class="l" href="#contact" data-vi="Liên hệ" data-en="Contact">Liên hệ</a>
+      <button class="lang" id="langBtn" type="button">EN</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<div class="wrap hero">
+  <h1 data-vi="Trả lời khách 24/7, không bỏ lỡ đơn nào" data-en="Reply to customers 24/7. Never miss an order.">Trả lời khách 24/7, không bỏ lỡ đơn nào</h1>
+  <p data-vi="Mình dựng chatbot Messenger/Zalo và landing page song ngữ Anh-Việt cho doanh nghiệp nhỏ tại TP.HCM, để bạn tiết kiệm thời gian trả lời tin nhắn lặp lại."
+     data-en="I build Messenger/Zalo chatbots and bilingual English-Vietnamese landing pages for small businesses in Ho Chi Minh City, so you spend less time on repetitive messages.">Mình dựng chatbot Messenger/Zalo và landing page song ngữ Anh-Việt cho doanh nghiệp nhỏ tại TP.HCM, để bạn tiết kiệm thời gian trả lời tin nhắn lặp lại.</p>
+  <a class="btn" href="#contact" data-vi="Nhận bản demo miễn phí" data-en="Get a free demo">Nhận bản demo miễn phí</a>
+  <a class="btn alt" href="#services" data-vi="Xem dịch vụ" data-en="See services">Xem dịch vụ</a>
+</div>
+
+<section id="services"><div class="wrap">
+  <h2 data-vi="Dịch vụ" data-en="Services">Dịch vụ</h2>
+  <p class="sub" data-vi="Gọn, rõ phạm vi, giao trong vài ngày." data-en="Simple, clear scope, delivered in days.">Gọn, rõ phạm vi, giao trong vài ngày.</p>
+  <div class="grid">
+    <div class="card">
+      <h3 data-vi="Chatbot trả lời tự động" data-en="Auto-reply chatbot">Chatbot trả lời tự động</h3>
+      <p data-vi="Bot trả lời các câu hỏi lặp lại và chuyển cho bạn khi cần." data-en="A bot that answers repeated questions and hands over to you when needed.">Bot trả lời các câu hỏi lặp lại và chuyển cho bạn khi cần.</p>
+      <ul>
+        <li data-vi="Messenger, Zalo, website" data-en="Messenger, Zalo, website">Messenger, Zalo, website</li>
+        <li data-vi="10-15 câu FAQ do bạn duyệt" data-en="10-15 FAQs approved by you">10-15 câu FAQ do bạn duyệt</li>
+        <li data-vi="Thu thập tên, SĐT, đơn hàng vào Google Sheets" data-en="Collects name, phone, orders into Google Sheets">Thu thập tên, SĐT, đơn hàng vào Google Sheets</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 data-vi="Landing page song ngữ" data-en="Bilingual landing page">Landing page song ngữ</h3>
+      <p data-vi="Một trang gọn, nhanh, có nút chuyển Anh-Việt để đón cả khách trong nước và người nước ngoài." data-en="One fast, clean page with an English-Vietnamese switch for local and international customers.">Một trang gọn, nhanh, có nút chuyển Anh-Việt để đón cả khách trong nước và người nước ngoài.</p>
+      <ul>
+        <li data-vi="Form liên hệ nối thẳng vào Sheets" data-en="Contact form connected to Sheets">Form liên hệ nối thẳng vào Sheets</li>
+        <li data-vi="Hiển thị tốt trên điện thoại" data-en="Mobile friendly">Hiển thị tốt trên điện thoại</li>
+        <li data-vi="Báo email khi có khách mới" data-en="Email alert for every new lead">Báo email khi có khách mới</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 data-vi="Tự động hóa quy trình" data-en="Workflow automation">Tự động hóa quy trình</h3>
+      <p data-vi="Đơn hàng, khách hỏi mua và báo cáo tuần được ghi và gửi tự động." data-en="Orders, inquiries and weekly reports recorded and sent automatically.">Đơn hàng, khách hỏi mua và báo cáo tuần được ghi và gửi tự động.</p>
+      <ul>
+        <li data-vi="Google Sheets + Apps Script" data-en="Google Sheets + Apps Script">Google Sheets + Apps Script</li>
+        <li data-vi="Báo cáo hằng tuần qua email" data-en="Weekly email report">Báo cáo hằng tuần qua email</li>
+        <li data-vi="Tài liệu hướng dẫn 1 trang" data-en="One-page handover guide">Tài liệu hướng dẫn 1 trang</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section id="process"><div class="wrap">
+  <h2 data-vi="Quy trình 4 bước" data-en="4-step process">Quy trình 4 bước</h2>
+  <p class="sub" data-vi="Lập kế hoạch kỹ trước khi dựng, để bot chạy trơn tru." data-en="Careful planning first, so everything runs smoothly.">Lập kế hoạch kỹ trước khi dựng, để bot chạy trơn tru.</p>
+  <div class="grid">
+    <div class="card"><div class="num">1</div><h3 data-vi="Khảo sát" data-en="Discover">Khảo sát</h3><p data-vi="Gọi 15-20 phút để hiểu khách của bạn hay hỏi gì." data-en="A 15-20 minute call to learn what your customers ask most.">Gọi 15-20 phút để hiểu khách của bạn hay hỏi gì.</p></div>
+    <div class="card"><div class="num">2</div><h3 data-vi="Lên kế hoạch" data-en="Plan">Lên kế hoạch</h3><p data-vi="Soạn FAQ và kịch bản trả lời, bạn duyệt trước khi dựng." data-en="Draft FAQs and reply flows for your approval before building.">Soạn FAQ và kịch bản trả lời, bạn duyệt trước khi dựng.</p></div>
+    <div class="card"><div class="num">3</div><h3 data-vi="Dựng và kiểm thử" data-en="Build & test">Dựng và kiểm thử</h3><p data-vi="Dựng bot, thử ít nhất 20 tình huống thực tế." data-en="Build the bot and test at least 20 real scenarios.">Dựng bot, thử ít nhất 20 tình huống thực tế.</p></div>
+    <div class="card"><div class="num">4</div><h3 data-vi="Bàn giao và theo dõi" data-en="Handover & follow-up">Bàn giao và theo dõi</h3><p data-vi="Hướng dẫn sử dụng, theo dõi 1-2 tuần và cập nhật FAQ." data-en="Usage guide, then 1-2 weeks of monitoring and FAQ updates.">Hướng dẫn sử dụng, theo dõi 1-2 tuần và cập nhật FAQ.</p></div>
+  </div>
+</div></section>
+
+<section id="cases"><div class="wrap">
+  <h2 data-vi="Dự án tiêu biểu" data-en="Case studies">Dự án tiêu biểu</h2>
+  <p class="sub" data-vi="Đang nhận 2-3 dự án thử nghiệm đầu tiên." data-en="Now taking the first 2-3 pilot projects.">Đang nhận 2-3 dự án thử nghiệm đầu tiên.</p>
+  <div class="grid">
+    <div class="card ph"><h3 data-vi="Dự án 1" data-en="Project 1">Dự án 1</h3><p data-vi="[Thêm tên shop, vấn đề, kết quả sau khi hoàn thành]" data-en="[Add business, problem and result after completion]">[Thêm tên shop, vấn đề, kết quả sau khi hoàn thành]</p></div>
+    <div class="card ph"><h3 data-vi="Dự án 2" data-en="Project 2">Dự án 2</h3><p data-vi="[Thêm tên shop, vấn đề, kết quả sau khi hoàn thành]" data-en="[Add business, problem and result after completion]">[Thêm tên shop, vấn đề, kết quả sau khi hoàn thành]</p></div>
+  </div>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <h2 data-vi="Câu hỏi thường gặp" data-en="FAQ">Câu hỏi thường gặp</h2>
+  <p class="sub"></p>
+  <details><summary data-vi="Mất bao lâu để có chatbot?" data-en="How long does a chatbot take?">Mất bao lâu để có chatbot?</summary>
+    <p data-vi="Thường 3-5 ngày kể từ khi bạn duyệt xong bộ FAQ." data-en="Usually 3-5 days after you approve the FAQ set.">Thường 3-5 ngày kể từ khi bạn duyệt xong bộ FAQ.</p></details>
+  <details><summary data-vi="Mình có phải đưa mật khẩu Facebook không?" data-en="Do I need to share my Facebook password?">Mình có phải đưa mật khẩu Facebook không?</summary>
+    <p data-vi="Không. Bạn chỉ cần thêm mình vào Meta Business Suite với quyền vừa đủ và có thể gỡ bất cứ lúc nào." data-en="No. You just add me in Meta Business Suite with limited access and can remove me anytime.">Không. Bạn chỉ cần thêm mình vào Meta Business Suite với quyền vừa đủ và có thể gỡ bất cứ lúc nào.</p></details>
+  <details><summary data-vi="Dữ liệu khách hàng lưu ở đâu?" data-en="Where is customer data stored?">Dữ liệu khách hàng lưu ở đâu?</summary>
+    <p data-vi="Trong Google Sheets thuộc tài khoản của bạn. Mình không lưu bản sao riêng." data-en="In a Google Sheet under your own account. I keep no separate copy.">Trong Google Sheets thuộc tài khoản của bạn. Mình không lưu bản sao riêng.</p></details>
+  <details><summary data-vi="Bot không trả lời được thì sao?" data-en="What if the bot can't answer?">Bot không trả lời được thì sao?</summary>
+    <p data-vi="Luôn có nút chuyển cho nhân viên, nên khách không bao giờ bị kẹt." data-en="There is always a hand-over button to a human, so customers are never stuck.">Luôn có nút chuyển cho nhân viên, nên khách không bao giờ bị kẹt.</p></details>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <h2 data-vi="Liên hệ" data-en="Contact">Liên hệ</h2>
+  <p class="sub" data-vi="Để lại thông tin, mình sẽ phản hồi sớm." data-en="Leave your details and I'll reply soon.">Để lại thông tin, mình sẽ phản hồi sớm.</p>
+  <form id="leadForm">
+    <input name="name" required placeholder="Họ tên" data-ph-vi="Họ tên" data-ph-en="Your name">
+    <input name="phone" required placeholder="SĐT / Zalo" data-ph-vi="SĐT / Zalo" data-ph-en="Phone / Zalo / WhatsApp">
+    <textarea name="message" placeholder="Bạn cần hỗ trợ gì?" data-ph-vi="Bạn cần hỗ trợ gì?" data-ph-en="How can I help?"></textarea>
+    <input name="website" style="display:none" tabindex="-1" autocomplete="off">
+    <button class="btn" type="submit" data-vi="Gửi" data-en="Send">Gửi</button>
+    <p id="msg"></p>
+  </form>
+  <div class="contacts">
+    <a href="https://zalo.me/SO_ZALO_CUA_BAN">Zalo</a>
+    <a href="https://m.me/TEN_PAGE_CUA_BAN">Messenger</a>
+    <a href="mailto:EMAIL_CUA_BAN@gmail.com">Email</a>
+    <a href="https://www.linkedin.com/in/LINKEDIN_CUA_BAN">LinkedIn</a>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">© <span id="yr"></span> Alex · Ho Chi Minh City</div></footer>
+
+<script>
+// ====== CHỈNH Ở ĐÂY ======
+const SCRIPT_URL = 'PASTE_WEB_APP_URL'; // URL Apps Script (Web app)
+// =========================
+
+let lang = 'vi';
+function applyLang(){
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-vi]').forEach(el => { el.textContent = el.dataset[lang]; });
+  document.querySelectorAll('[data-ph-vi]').forEach(el => { el.placeholder = el.dataset[lang === 'vi' ? 'phVi' : 'phEn']; });
+  document.getElementById('langBtn').textContent = lang === 'vi' ? 'EN' : 'VI';
+  try { localStorage.setItem('lang', lang); } catch(e){}
+}
+try { const s = localStorage.getItem('lang'); if (s) lang = s; else if (!navigator.language.startsWith('vi')) lang = 'en'; } catch(e){}
+document.getElementById('langBtn').addEventListener('click', () => { lang = lang === 'vi' ? 'en' : 'vi'; applyLang(); });
+applyLang();
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+document.getElementById('leadForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const msg = document.getElementById('msg');
+  if (SCRIPT_URL.startsWith('PASTE')) { msg.style.color = '#b91c1c'; msg.textContent = 'Chưa gắn SCRIPT_URL.'; return; }
+  try {
+    await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(e.target)) });
+    e.target.reset();
+    msg.style.color = '#15803d';
+    msg.textContent = lang === 'vi' ? 'Đã gửi! Mình sẽ liên hệ sớm.' : 'Sent! I will get back to you soon.';
+  } catch (err) {
+    msg.style.color = '#b91c1c';
+    msg.textContent = lang === 'vi' ? 'Gửi lỗi, bạn thử lại hoặc nhắn Zalo nhé.' : 'Something went wrong. Please try again or message on Zalo.';
+  }
+});
+</script>
 </body>
 </html>
