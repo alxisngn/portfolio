@@ -128,10 +128,11 @@ h2{margin:0 0 12px;font-size:clamp(1.75rem,3.6vw,2.75rem);font-weight:800;line-h
 
 /* Contact */
 .contact-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,72px);align-items:start}
-.contact-list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
-.contact-list a{display:flex;flex-wrap:wrap;gap:4px 12px;text-underline-offset:4px}
-.contact-list strong{font-weight:700}
-.contact-list span{color:var(--on-ink)}
+.contact-icons{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:12px}
+.icon-link{--bg:var(--white);display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--bg);color:var(--ink);transition:background .2s,transform .2s}
+.icon-link svg{width:26px;height:26px;display:block}
+.icon-link:hover{background:var(--yellow);transform:translateY(-2px)}
+.icon-link:hover svg{--bg:var(--yellow)}
 .band-ink :focus-visible{outline-color:var(--yellow)}
 .form-card{background:var(--white);color:var(--ink);border-radius:20px;padding:clamp(20px,4vw,32px)}
 .form-card :focus-visible{outline-color:var(--teal)}
@@ -333,7 +334,7 @@ h2{margin:0 0 12px;font-size:clamp(1.75rem,3.6vw,2.75rem);font-weight:800;line-h
       <div>
         <h2 data-vi="Liên hệ" data-en="Contact">Liên hệ</h2>
         <p class="section-sub" data-vi="Để lại thông tin, mình sẽ phản hồi sớm." data-en="Leave your details and I'll reply soon.">Để lại thông tin, mình sẽ phản hồi sớm.</p>
-        <ul class="contact-list" id="contactList"></ul>
+        <ul class="contact-icons" id="contactList"></ul>
       </div>
       <form class="form-card" id="leadForm" novalidate>
         <div class="field">
@@ -561,6 +562,12 @@ h2{margin:0 0 12px;font-size:clamp(1.75rem,3.6vw,2.75rem);font-weight:800;line-h
   /* Contact links */
   (function renderContacts() {
     var list = document.getElementById('contactList');
+    var ICONS = {
+      Zalo: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5 3.5h14A2 2 0 0 1 21 5.5v10a2 2 0 0 1-2 2h-7.5L7 21v-3.5H5a2 2 0 0 1-2-2v-10a2 2 0 0 1 2-2z"/><path fill="none" stroke="var(--bg)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M8 8.2h8L8 14h8"/></svg>',
+      Messenger: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.5C6.7 2.5 2.5 6.4 2.5 11.3c0 2.7 1.3 5.1 3.3 6.7V21.5l3.1-1.7c1 .3 2 .4 3.1.4 5.3 0 9.5-3.9 9.5-8.9S17.3 2.5 12 2.5z"/><path fill="var(--bg)" d="M6.8 14l3.4-3.6 2.4 2.3 3.6-2.3-3.5 3.6-2.4-2.3z"/></svg>',
+      Email: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4.5 7.5l7.5 5.8 7.5-5.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+      LinkedIn: '<svg viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor"><circle cx="6.5" cy="6.5" r="2.1"/><rect x="4.7" y="10" width="3.6" height="9.5" rx=".6"/><path d="M10.5 10h3.4v1.4c.6-1 1.8-1.7 3.3-1.7 3 0 3.8 2 3.8 4.6v5.2h-3.6v-4.7c0-1.2-.3-2-1.4-2-1.2 0-1.8.9-1.8 2.1v4.6h-3.7z"/></g></svg>'
+    };
     var items = [
       ['Zalo', CONFIG.ZALO, function (v) { return 'https://zalo.me/' + v.replace(/\s+/g, ''); }],
       ['Messenger', CONFIG.MESSENGER, function (v) { return 'https://m.me/' + v; }],
@@ -572,14 +579,12 @@ h2{margin:0 0 12px;font-size:clamp(1.75rem,3.6vw,2.75rem);font-weight:800;line-h
       var li = document.createElement('li');
       var a = document.createElement('a');
       var href = it[2](it[1]);
+      a.className = 'icon-link';
       a.href = href;
+      a.title = it[0];
+      a.setAttribute('aria-label', it[0]);
       if (href.indexOf('mailto:') !== 0) { a.target = '_blank'; a.rel = 'noopener'; }
-      var s = document.createElement('strong');
-      s.textContent = it[0];
-      var v = document.createElement('span');
-      v.textContent = it[1];
-      a.appendChild(s);
-      a.appendChild(v);
+      a.innerHTML = ICONS[it[0]];
       li.appendChild(a);
       list.appendChild(li);
     });
